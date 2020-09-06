@@ -9,17 +9,25 @@
         <h4>Pál vagyok</h4>
         <p>A robotok a mindenem.</p>
      
- <h2>HTML-Inhalte verändern</h2>
+ <h2>HTML-tartalom módosítása</h2>
  <p id ="absatz">Nem minden robot jó,</p>
  <button type = "button" onclick = "document.
 getElementById('absatz').innerHTML =
  'De minden jó robot.'">Folytatás</button>
       
-      <h2>Das Layout verändern</h2>
+      <h2>A Layout módosítása</h2>
  <p id ="absatz2">Text</p>
  <button type = "button" onclick = "document.
 getElementById('absatz2').style.color =
  'red'">Farbe ändern</button>
+      
+      <h2>Grafiken auswechseln</h2>
+ <button onclick="document.getElementById('meinBild').
+src='bild1.png'">Bild 1</button>
+ <img id="meinBild" src="bild1.gif">
+ <button onclick="document.getElementById('meinBild').
+src='bild2.png'">Bild 2</button> 
+
  
         <img src="robotkep.png" alt="keprolad">
     </div>
