@@ -5,6 +5,17 @@ var position = 100;
 var doesitgo = false;
 var isppeaking = false;
 
+
+function comeback()
+{
+
+  image.src = "Gallery/" + images[current];
+  image.style.left = 10 + "px";
+image.src = "Gallery/palall.png";
+position =10;
+
+}
+
 function nextImage() {
 
 
@@ -15,7 +26,7 @@ function nextImage() {
   image.style.left = position + "px";
   console.log(position + "px");
   position = position + 12;
-
+    doesitgo = false;
 
 }
 
