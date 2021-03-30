@@ -28,7 +28,7 @@ function palspeak() {
   } else {
     current = 1;
   }
-
+ 
   console.log(current);
 
   var image = document.getElementById('image');
