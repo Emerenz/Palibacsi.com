@@ -14,7 +14,7 @@ function nextImage() {
   image.src = "Gallery/" + images[current];
   image.style.left = position + "px";
   console.log(position + "px");
-  position = position + 1;
+  position = position + 12;
 
 
 }
@@ -39,7 +39,6 @@ function palspeak() {
   }
   image.style.left = position + "px";
   console.log(position + "px");
-  position = position + 1;
 
 
 }
@@ -53,7 +52,7 @@ function stop() {
   var image = document.getElementById('image');
   image.src = "Gallery/palall.png";
   clearInterval(rep);
-  
+
 }
 
 
