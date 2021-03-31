@@ -3,10 +3,14 @@ var backimages = ['pal4.png', 'pal2.png', 'pal3.png', 'pal1.png']
 
 var current = 0;
 var position = 10;
+var step=12;
 var doesitgo = false;
 var isspeaking = false;
 var goingback = false;
-
+var firstspeak = true;
+var currentspeak = 0;
+var wasgoingback = false;
+var speakarray = ['palall.png','palspeak2.png'];
 
 function comeback()
 {
@@ -18,6 +22,7 @@ function comeback()
 image.src = "Gallery/palall.png";
 var current = 0;
 clearInterval(rep);
+firstspeak=true;
 
 rep = setInterval(nextImage, 200);
 
@@ -33,31 +38,22 @@ function nextImage() {
   image.src = "Gallery/" + backimages[current];
   image.style.left = position + "px";
   console.log(position + "px");
-  position = position + 12;
-  if (goingback)   position = position - 24;
-  if (position <10) position =10;
+  position = position + step;
+  if (goingback)   position = position - 2*step;
+  if (position <step) position =step;
     doesitgo = false;
 
 }
 
 function palspeak() {
+currentspeak = (currentspeak+1)%2;
 
-  if (current == 1) {
-    current = 2;
-  } else {
-    current = 1;
-  }
-
-  console.log(current);
+  console.log(currentspeak);
 
   var image = document.getElementById('image');
-  if (current == 1) {
-    image.src = "Gallery/palall.png";
-  } else if (current == 2) {
-    image.src = "Gallery/palspeak2.png";
-  }
-  image.style.left = position + "px";
-  console.log(position + "px");
+    console.log(position + "px");
+image.style.left = position + "px";
+image.src = "Gallery/" + speakarray[currentspeak];
 
 
 }
@@ -68,6 +64,7 @@ var rep;
 function stop() {
   isspeaking = false;
   doesitgo = false;
+  if (goingback) wasgoingback = true;
   goingback=false;
   var image = document.getElementById('image');
   image.src = "Gallery/palall.png";
@@ -83,9 +80,10 @@ function start() {
   goingback=false;
   doesitgo = true;
   isspeaking = false;
+  wasgoingback = false;
   var current = 0;
   clearInterval(rep);
-
+firstspeak=true;
   rep = setInterval(nextImage, 200);
 
 
@@ -93,10 +91,21 @@ function start() {
 
 function speak() {
   if (isspeaking) return;
+  console.log(window.firstspeak);
+  console.log("before " + position);
+  if(firstspeak && !wasgoingback) {console.log("OK"); position=position-step;console.log("after"+position);}
+  else if (firstspeak && wasgoingback) {console.log("OK"); position=position+step;console.log("after"+position);}
+
+
+  firstspeak=false;
   doesitgo = false;
   isspeaking = (true);
   clearInterval(rep);
+  console.log(position);
+
+  console.log(position);
   rep = setInterval(palspeak, 200);
+
 
 
 }
