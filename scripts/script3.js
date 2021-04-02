@@ -48,7 +48,7 @@ image.src = "Gallery/palall.png";
 var current = 0;
 clearInterval(rep);
 firstspeak=true;
-
+  audioElement.pause();
 rep = setInterval(nextImage, 200);
 
 
@@ -122,6 +122,7 @@ function start() {
     isdancing=false;
   isspeaking = false;
   wasgoingback = false;
+  audioElement.pause();
   var current = 0;
   clearInterval(rep);
 firstspeak=true;
@@ -142,6 +143,7 @@ function speak() {
   doesitgo = false;
   isspeaking = (true);
     isdancing=false;
+    audioElement.pause();
   clearInterval(rep);
   console.log(position);
 
